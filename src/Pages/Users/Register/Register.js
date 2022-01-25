@@ -1,11 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { LockClosedIcon } from '@heroicons/react/solid';
 
 import useAuth from "../../../hooks/useAuth";
 import logo from '../../../assets/images/logo.png';
 
 const Register = () => {
-    const { loginWithGoogle } = useAuth();
+    const [userData, setUserData] = useState({});
+
+    const { loginWithGoogle, registerWithEmailAndPassword } = useAuth();
+
+    const handleOnBlur = e => {
+        e.preventDefault();
+
+        const field = e.target.name;
+        const value = e.target.value;
+        const newUserData = { ...userData };
+        newUserData[field] = value;
+        setUserData(newUserData);
+    };
+
+    const handleRegisterWithEmailAndPassword = e => {
+        e.preventDefault();
+
+        if (userData.password !== userData.confirmPassword) {
+            alert('Password not matched');
+            return;
+        }
+        registerWithEmailAndPassword(userData.email, userData.password, userData.name);
+    };
 
     return (
         <>
@@ -13,14 +35,14 @@ const Register = () => {
                 <div className="max-w-md w-full space-y-8">
                     <div>
                         <img
-                            className="mx-auto h-12 w-auto"
+                            className="mx-auto h-auto w-48"
                             src={logo}
                             alt="Workflow"
                         />
                         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Create a new account</h2>
 
                     </div>
-                    <form className="mt-8 space-y-6" action="#" method="POST">
+                    <form onSubmit={handleRegisterWithEmailAndPassword} className="mt-8 space-y-6">
                         <input type="hidden" name="remember" defaultValue="true" />
                         <div className="rounded-md shadow-sm -space-y-px">
                             <div>
@@ -28,6 +50,7 @@ const Register = () => {
                                     Full Name
                                 </label>
                                 <input
+                                    onBlur={handleOnBlur}
                                     id="full-name"
                                     name="name"
                                     type="text"
@@ -42,6 +65,7 @@ const Register = () => {
                                     Email address
                                 </label>
                                 <input
+                                    onBlur={handleOnBlur}
                                     id="email-address"
                                     name="email"
                                     type="email"
@@ -56,6 +80,7 @@ const Register = () => {
                                     Password
                                 </label>
                                 <input
+                                    onBlur={handleOnBlur}
                                     id="password"
                                     name="password"
                                     type="password"
@@ -70,10 +95,11 @@ const Register = () => {
                                     Confirm Password
                                 </label>
                                 <input
+                                    onBlur={handleOnBlur}
                                     id="password"
-                                    name="confirm-password"
+                                    name="confirmPassword"
                                     type="password"
-                                    autoComplete="confirm-password"
+                                    autoComplete="confirmPassword"
                                     required
                                     className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                                     placeholder="Confirm Password"

@@ -1,12 +1,33 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { LockClosedIcon } from '@heroicons/react/solid';
 
 import useAuth from "../../../hooks/useAuth";
 import logo from '../../../assets/images/logo.png';
 
 const Login = () => {
-    const { user, loginWithGoogle } = useAuth();
-    console.log(user);
+    const [userData, setUserData] = useState({});
+
+    const { loginWithGoogle, loginWithEmailAndPassword } = useAuth();
+
+    const handleOnBlur = e => {
+        e.preventDefault();
+
+        const field = e.target.name;
+        const value = e.target.value;
+        const newUserData = { ...userData };
+        newUserData[field] = value;
+        setUserData(newUserData);
+    };
+
+    const handleEmailAndPasswordLogin = e => {
+        e.preventDefault();
+
+        loginWithEmailAndPassword(userData.email, userData.password);
+    };
+
+    const handleGoogleLogin = () => {
+        loginWithGoogle();
+    };
 
     return (
         <>
@@ -14,14 +35,14 @@ const Login = () => {
                 <div className="max-w-md w-full space-y-8">
                     <div>
                         <img
-                            className="mx-auto h-12 w-auto"
+                            className="mx-auto h-auto w-48"
                             src={logo}
                             alt="Workflow"
                         />
                         <h2 className="mt-6 text-center text-3xl font-extrabold text-gray-900">Sign in to your account</h2>
 
                     </div>
-                    <form className="mt-8 space-y-6" action="#" method="POST">
+                    <form onSubmit={handleEmailAndPasswordLogin} className="mt-8 space-y-6">
                         <input type="hidden" name="remember" defaultValue="true" />
                         <div className="rounded-md shadow-sm -space-y-px">
                             <div>
@@ -29,6 +50,7 @@ const Login = () => {
                                     Email address
                                 </label>
                                 <input
+                                    onBlur={handleOnBlur}
                                     id="email-address"
                                     name="email"
                                     type="email"
@@ -43,6 +65,7 @@ const Login = () => {
                                     Password
                                 </label>
                                 <input
+                                    onBlur={handleOnBlur}
                                     id="password"
                                     name="password"
                                     type="password"
@@ -66,7 +89,7 @@ const Login = () => {
                             </button>
                             <br />
                             <button
-                                onClick={loginWithGoogle}
+                                onClick={handleGoogleLogin}
                                 type="submit"
                                 className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
                             >
