@@ -3,84 +3,140 @@
         "title": "A Few JavaScript Advanced Concepts",
         "img": "https://i.ibb.co/KD39fBb/js.jpg",
         "description": "Document Object Model is shortly known as DOM. When a web page is reloaded, the browser creates a DOM of the page. And HTML DOM is considered as a tree of objects. JavaScript has the power to change any of the elements, attributes, CSS styles, or events.",
-        "blogExtUri": "https://dev.to/rhb/a-few-javascript-advanced-concepts-12jm"
+        "blogExtUri": "https://dev.to/rhb/a-few-javascript-advanced-concepts-12jm",
+        "category": "Group Tour",
+        "cost": "1500",
+        "location": "Chittagong",
+        "address": "Hill"
     },
     {
         "title": "React Concepts Exploration",
         "img": "https://i.ibb.co/mTCrWpm/react-js.jpg",
         "description": "SX stands for JavaScript XML. It is a syntax extension of JavaScript. It allows the developers to write HTML in React JS. It’s actually not HTML, just looks like HTML that gets transformed to JavaScript. And that’s the React JS unique feature.",
-        "blogExtUri": "https://dev.to/rhb/react-concepts-exploration-3icg"
+        "blogExtUri": "https://dev.to/rhb/react-concepts-exploration-3icg",
+        "category": "One Day",
+        "cost": "700",
+        "location": "Mymensingh",
+        "address": "Durgapur"
     },
     {
         "title": "Server Backend Concepts Exploration",
         "img": "https://i.ibb.co/gdKSpPB/node-js.jpg",
         "description": "JavaScript is a compiled programming language that runs in the browser by Chrome’s V8 engine. If we run JavaScript outside of a browser then it needs a runtime. Node JS is a JavaScript runtime that helps JavaScript to run outside of a browser.",
-        "blogExtUri": "https://dev.to/rhb/backend-concepts-exploration-3p9c"
+        "blogExtUri": "https://dev.to/rhb/backend-concepts-exploration-3p9c",
+        "category": "One Day",
+        "cost": "850",
+        "location": "Mymensingh",
+        "address": "Durgapur"
     },
     {
         "title": "A Few JavaScript Advanced Concepts",
         "img": "https://i.ibb.co/KD39fBb/js.jpg",
         "description": "Document Object Model is shortly known as DOM. When a web page is reloaded, the browser creates a DOM of the page. And HTML DOM is considered as a tree of objects. JavaScript has the power to change any of the elements, attributes, CSS styles, or events.",
-        "blogExtUri": "https://dev.to/rhb/a-few-javascript-advanced-concepts-12jm"
+        "blogExtUri": "https://dev.to/rhb/a-few-javascript-advanced-concepts-12jm",
+        "category": "One Day",
+        "cost": "750",
+        "location": "Mymensingh",
+        "address": "Durgapur"
     },
     {
         "title": "React Concepts Exploration",
         "img": "https://i.ibb.co/mTCrWpm/react-js.jpg",
         "description": "SX stands for JavaScript XML. It is a syntax extension of JavaScript. It allows the developers to write HTML in React JS. It’s actually not HTML, just looks like HTML that gets transformed to JavaScript. And that’s the React JS unique feature.",
-        "blogExtUri": "https://dev.to/rhb/react-concepts-exploration-3icg"
+        "blogExtUri": "https://dev.to/rhb/react-concepts-exploration-3icg",
+        "category": "Group Tour",
+        "cost": "1400",
+        "location": "Chittagong",
+        "address": "Hill"
     },
     {
         "title": "Server Backend Concepts Exploration",
         "img": "https://i.ibb.co/gdKSpPB/node-js.jpg",
         "description": "JavaScript is a compiled programming language that runs in the browser by Chrome’s V8 engine. If we run JavaScript outside of a browser then it needs a runtime. Node JS is a JavaScript runtime that helps JavaScript to run outside of a browser.",
-        "blogExtUri": "https://dev.to/rhb/backend-concepts-exploration-3p9c"
+        "blogExtUri": "https://dev.to/rhb/backend-concepts-exploration-3p9c",
+        "category": "One Day",
+        "cost": "900",
+        "location": "Mymensingh",
+        "address": "Durgapur"
     },
     {
         "title": "A Few JavaScript Advanced Concepts",
         "img": "https://i.ibb.co/KD39fBb/js.jpg",
         "description": "Document Object Model is shortly known as DOM. When a web page is reloaded, the browser creates a DOM of the page. And HTML DOM is considered as a tree of objects. JavaScript has the power to change any of the elements, attributes, CSS styles, or events.",
-        "blogExtUri": "https://dev.to/rhb/a-few-javascript-advanced-concepts-12jm"
+        "blogExtUri": "https://dev.to/rhb/a-few-javascript-advanced-concepts-12jm",
+        "category": "One Day",
+        "cost": "700",
+        "location": "Mymensingh",
+        "address": "Durgapur"
     },
     {
         "title": "React Concepts Exploration",
         "img": "https://i.ibb.co/mTCrWpm/react-js.jpg",
         "description": "SX stands for JavaScript XML. It is a syntax extension of JavaScript. It allows the developers to write HTML in React JS. It’s actually not HTML, just looks like HTML that gets transformed to JavaScript. And that’s the React JS unique feature.",
-        "blogExtUri": "https://dev.to/rhb/react-concepts-exploration-3icg"
+        "blogExtUri": "https://dev.to/rhb/react-concepts-exploration-3icg",
+        "category": "Group Tour",
+        "cost": "1200",
+        "location": "Chittagong",
+        "address": "Hill"
     },
     {
         "title": "Server Backend Concepts Exploration",
         "img": "https://i.ibb.co/gdKSpPB/node-js.jpg",
         "description": "JavaScript is a compiled programming language that runs in the browser by Chrome’s V8 engine. If we run JavaScript outside of a browser then it needs a runtime. Node JS is a JavaScript runtime that helps JavaScript to run outside of a browser.",
-        "blogExtUri": "https://dev.to/rhb/backend-concepts-exploration-3p9c"
+        "blogExtUri": "https://dev.to/rhb/backend-concepts-exploration-3p9c",
+        "category": "One Day",
+        "cost": "600",
+        "location": "Mymensingh",
+        "address": "Durgapur"
     },
     {
         "title": "A Few JavaScript Advanced Concepts",
         "img": "https://i.ibb.co/KD39fBb/js.jpg",
         "description": "Document Object Model is shortly known as DOM. When a web page is reloaded, the browser creates a DOM of the page. And HTML DOM is considered as a tree of objects. JavaScript has the power to change any of the elements, attributes, CSS styles, or events.",
-        "blogExtUri": "https://dev.to/rhb/a-few-javascript-advanced-concepts-12jm"
+        "blogExtUri": "https://dev.to/rhb/a-few-javascript-advanced-concepts-12jm",
+        "category": "Weekend Tour",
+        "cost": "1900",
+        "location": "Abroad/Foreign",
+        "address": "India"
     },
     {
         "title": "React Concepts Exploration",
         "img": "https://i.ibb.co/mTCrWpm/react-js.jpg",
         "description": "SX stands for JavaScript XML. It is a syntax extension of JavaScript. It allows the developers to write HTML in React JS. It’s actually not HTML, just looks like HTML that gets transformed to JavaScript. And that’s the React JS unique feature.",
-        "blogExtUri": "https://dev.to/rhb/react-concepts-exploration-3icg"
+        "blogExtUri": "https://dev.to/rhb/react-concepts-exploration-3icg",
+        "category": "Weekend Tour",
+        "cost": "1800",
+        "location": "Abroad/Foreign",
+        "address": "India"
     },
     {
         "title": "Server Backend Concepts Exploration",
         "img": "https://i.ibb.co/gdKSpPB/node-js.jpg",
         "description": "JavaScript is a compiled programming language that runs in the browser by Chrome’s V8 engine. If we run JavaScript outside of a browser then it needs a runtime. Node JS is a JavaScript runtime that helps JavaScript to run outside of a browser.",
-        "blogExtUri": "https://dev.to/rhb/backend-concepts-exploration-3p9c"
+        "blogExtUri": "https://dev.to/rhb/backend-concepts-exploration-3p9c",
+        "category": "Weekend Tour",
+        "cost": "2000",
+        "location": "Abroad/Foreign",
+        "address": "India"
     },
     {
         "title": "A Few JavaScript Advanced Concepts",
         "img": "https://i.ibb.co/KD39fBb/js.jpg",
         "description": "Document Object Model is shortly known as DOM. When a web page is reloaded, the browser creates a DOM of the page. And HTML DOM is considered as a tree of objects. JavaScript has the power to change any of the elements, attributes, CSS styles, or events.",
-        "blogExtUri": "https://dev.to/rhb/a-few-javascript-advanced-concepts-12jm"
+        "blogExtUri": "https://dev.to/rhb/a-few-javascript-advanced-concepts-12jm",
+        "category": "Group Tour",
+        "cost": "1200",
+        "location": "Chittagong",
+        "address": "Hill"
     },
     {
         "title": "React Concepts Exploration",
         "img": "https://i.ibb.co/mTCrWpm/react-js.jpg",
         "description": "SX stands for JavaScript XML. It is a syntax extension of JavaScript. It allows the developers to write HTML in React JS. It’s actually not HTML, just looks like HTML that gets transformed to JavaScript. And that’s the React JS unique feature.",
-        "blogExtUri": "https://dev.to/rhb/react-concepts-exploration-3icg"
+        "blogExtUri": "https://dev.to/rhb/react-concepts-exploration-3icg",
+        "category": "Weekend Tour",
+        "cost": "1800",
+        "location": "Abroad/Foreign",
+        "address": "India"
     }
 ]
