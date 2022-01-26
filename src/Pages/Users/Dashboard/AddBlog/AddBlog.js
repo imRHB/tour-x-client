@@ -27,8 +27,10 @@ const AddBlog = () => {
         })
             .then(res => res.json())
             .then(result => {
-                console.log(result);
+                alert('New blog added successfully')
             });
+
+        e.target.reset();
     };
 
     return (
@@ -39,24 +41,24 @@ const AddBlog = () => {
                     <div class="flex flex-wrap">
                         <div class="w-full">
                             <label class="block mb-1" for="formGridCode_card">Image</label>
-                            <input onBlur={handleOnBlur} class="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline" type="text" name="img" id="formGridCode_card" placeholder="Insert direct image URL" />
+                            <input onBlur={handleOnBlur} class="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline" type="text" name="img" id="formGridCode_card" placeholder="Insert direct image URL" required />
                         </div>
                     </div>
                     <div class="flex flex-wrap">
                         <div class="w-full">
                             <label class="block mb-1" for="formGridCode_card">Blog Title</label>
-                            <input onBlur={handleOnBlur} class="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline" type="text" name="title" id="formGridCode_card" placeholder="Blog title" />
+                            <input onBlur={handleOnBlur} class="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline" type="text" name="title" id="formGridCode_card" placeholder="Blog title" required />
                         </div>
                     </div>
                     <div class="flex flex-wrap">
                         <div class="w-full">
                             <label class="block mb-1" for="formGridCode_card">Description</label>
-                            <textarea onBlur={handleOnBlur} class="w-full h-16 px-3 py-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline" name="description" placeholder="Description"></textarea>
+                            <textarea onBlur={handleOnBlur} class="w-full h-16 px-3 py-2 text-base text-gray-700 placeholder-gray-600 border rounded-lg focus:shadow-outline" name="description" placeholder="Description" required />
                         </div>
                     </div>
                     <div class="relative inline-block w-full text-gray-700">
                         <label class="block mb-1" for="formGridCode_card">Category</label>
-                        <select onBlur={handleOnBlur} class="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline" name="category" placeholder="Choose category">
+                        <select onBlur={handleOnBlur} class="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline" name="category" placeholder="Choose category" required>
                             <option>One Day</option>
                             <option>Weekend Tour</option>
                             <option>Group Tour</option>
@@ -64,20 +66,22 @@ const AddBlog = () => {
                             <option>Business Travel</option>
                             <option>Others</option>
                         </select>
-                        <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
-                            <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
+                        <div class="absolute inset-y-0 right-0 top-8 flex items-center px-2 pointer-events-none">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                <path fill-rule="evenodd" d="M10 3a1 1 0 01.707.293l3 3a1 1 0 01-1.414 1.414L10 5.414 7.707 7.707a1 1 0 01-1.414-1.414l3-3A1 1 0 0110 3zm-3.707 9.293a1 1 0 011.414 0L10 14.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                            </svg>
                         </div>
                     </div>
                     <div class="flex flex-wrap">
                         <div class="w-full">
                             <label class="block mb-1" for="formGridCode_card">Total Cost</label>
-                            <input onBlur={handleOnBlur} class="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline" type="number" name="cost" id="formGridCode_card" placeholder="Tour cost ($)" />
+                            <input onBlur={handleOnBlur} class="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline" type="number" name="cost" id="formGridCode_card" placeholder="Tour cost ($)" required />
                         </div>
                     </div>
                     <div class="flex flex-wrap -mx-2 space-y-4 md:space-y-0">
                         <div class="relative w-full px-2 md:w-1/2">
                             <label class="block mb-1" for="formGridCode_card">Location</label>
-                            <select onBlur={handleOnBlur} class="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline" name="location" placeholder="Choose category">
+                            <select onBlur={handleOnBlur} class="w-full h-10 pl-3 pr-6 text-base placeholder-gray-600 border rounded-lg appearance-none focus:shadow-outline" name="location" placeholder="Choose category" required>
                                 <option>Dhaka</option>
                                 <option>Mymensingh</option>
                                 <option>Rajshahi</option>
@@ -88,13 +92,15 @@ const AddBlog = () => {
                                 <option>Khulna</option>
                                 <option>Abroad/Foreign</option>
                             </select>
-                            <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
-                                <svg class="w-4 h-4 fill-current" viewBox="0 0 20 20"><path d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" fill-rule="evenodd"></path></svg>
+                            <div class="absolute inset-y-0 right-0 top-8 flex items-center px-2 pointer-events-none">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                                    <path fill-rule="evenodd" d="M10 3a1 1 0 01.707.293l3 3a1 1 0 01-1.414 1.414L10 5.414 7.707 7.707a1 1 0 01-1.414-1.414l3-3A1 1 0 0110 3zm-3.707 9.293a1 1 0 011.414 0L10 14.586l2.293-2.293a1 1 0 011.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                </svg>
                             </div>
                         </div>
                         <div class="w-full px-2 md:w-1/2">
                             <label class="block mb-1" for="formGridCode_last">Address</label>
-                            <input onBlur={handleOnBlur} class="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline" type="text" name="address" id="formGridCode_last" />
+                            <input onBlur={handleOnBlur} class="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline" type="text" name="address" id="formGridCode_last" required />
                         </div>
                     </div>
                     <div>

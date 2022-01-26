@@ -13,7 +13,7 @@ const Landing = () => {
             {/* <Banner /> */}
             {/* <Blogs /> */}
             {/* <Header /> */}
-            {/* <AddBlog /> */}
+            <AddBlog />
             <ManageBlogs />
             {/* <MyBlog /> */}
             {/* <MakeAdmin /> */}
