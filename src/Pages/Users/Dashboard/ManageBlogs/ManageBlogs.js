@@ -1,14 +1,26 @@
 import React, { useEffect, useState } from 'react';
+import Rating from "react-rating";
 import useAuth from "../../../../hooks/useAuth";
 
 const ManageBlogs = () => {
     const [blogs, setBlogs] = useState([]);
-    console.log(blogs);
 
     const { user } = useAuth();
 
     const handleApprove = blogId => {
-        console.log('approved', blogId);
+        const status = { status: 'Approved' };
+
+        fetch(`http://localhost:5000/blogs/${blogId}`, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(status)
+        })
+            .then(res => res.json())
+            .then(result => {
+                console.log(result);
+            })
     };
 
     const handleDelete = blogId => {
@@ -89,6 +101,12 @@ const ManageBlogs = () => {
                                             scope="col"
                                             className="px-6 py-3 text-left text-xs font-extrabold text-gray-500 uppercase tracking-wider"
                                         >
+                                            Rating
+                                        </th>
+                                        <th
+                                            scope="col"
+                                            className="px-6 py-3 text-left text-xs font-extrabold text-gray-500 uppercase tracking-wider"
+                                        >
                                             Status
                                         </th>
                                         <th
@@ -135,8 +153,18 @@ const ManageBlogs = () => {
                                                 <div className="text-sm text-gray-900">${blog.cost}</div>
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
+                                                <div className="text-sm text-gray-900">
+                                                    <Rating
+                                                        readonly
+                                                        initialRating={blog.rating}
+                                                        emptySymbol="far fa-star text-yellow-500 ms-1 p-0"
+                                                        fullSymbol="fas fa-star text-yellow-500 ms-1 p-0"
+                                                    ></Rating>
+                                                </div>
+                                            </td>
+                                            <td className="px-6 py-4 whitespace-nowrap">
                                                 <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                    Pending
+                                                    {blog?.status}
                                                 </span>
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
