@@ -14,26 +14,33 @@ const Blogs = () => {
     useEffect(() => {
         setLoading(true);
 
-        fetch(`http://localhost:5000/blogs?page=${page}&&size=${size}`)
+        /* active */
+        /* fetch(`http://localhost:5000/blogs?page=${page}&&size=${size}`)
             .then(res => res.json())
             .then(data => {
                 setBlogs(data.blogs);
-                // setDisplayBlogs(data.blogs);
-                // setPageCount(data.count);
                 const count = data.count;
                 const pageNumber = Math.ceil(count / size);
                 setPageCount(pageNumber);
                 setLoading(false);
+            }); */
+
+        /* test */
+        fetch(`http://localhost:5000/blogs?status=Approved`)
+            .then(res => res.json())
+            .then(data => {
+                setBlogs(data);
+                setLoading(false);
             });
-    }, [page]);
+    }, []);
 
     return (
         <>
             {
                 loading ? <div>
-                    <div class="flex justify-center items-center" style={{ minHeight: '80vh' }}>
-                        <div class="relative w-24 h-24 animate-spin rounded-full bg-gradient-to-r from-purple-400 via-blue-500 to-red-400">
-                            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-white rounded-full border-2 border-white"></div>
+                    <div className="flex justify-center items-center" style={{ minHeight: '80vh' }}>
+                        <div className="relative w-24 h-24 animate-spin rounded-full bg-gradient-to-r from-purple-400 via-blue-500 to-red-400">
+                            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 bg-white rounded-full border-2 border-white"></div>
                         </div>
                     </div>
                 </div>

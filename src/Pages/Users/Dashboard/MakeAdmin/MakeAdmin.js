@@ -45,11 +45,11 @@ const MakeAdmin = () => {
     return (
         <div className="min-h-full flex py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-md w-full space-y-8">
-                <form onSubmit={handleMakeAdmin} class="space-y-4 text-gray-700">
-                    <div class="flex flex-wrap">
-                        <div class="w-full">
-                            <label class="block mb-1" for="formGridCode_card">Email</label>
-                            <input onBlur={handleOnBlur} class="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline" type="email" name="email" placeholder="Enter email address" required />
+                <form onSubmit={handleMakeAdmin} className="space-y-4 text-gray-700">
+                    <div className="flex flex-wrap">
+                        <div className="w-full">
+                            <label className="block mb-1" for="formGridCode_card">Email</label>
+                            <input onBlur={handleOnBlur} className="w-full h-10 px-3 text-base placeholder-gray-600 border rounded-lg focus:shadow-outline" type="email" name="email" placeholder="Enter email address" required />
                         </div>
                     </div>
 
