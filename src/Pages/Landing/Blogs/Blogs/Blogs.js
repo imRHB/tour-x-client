@@ -15,7 +15,7 @@ const Blogs = () => {
         setLoading(true);
 
         /* active */
-        /* fetch(`http://localhost:5000/blogs?page=${page}&&size=${size}`)
+        fetch(`http://localhost:5000/blogs?page=${page}&&size=${size}`)
             .then(res => res.json())
             .then(data => {
                 setBlogs(data.blogs);
@@ -23,16 +23,16 @@ const Blogs = () => {
                 const pageNumber = Math.ceil(count / size);
                 setPageCount(pageNumber);
                 setLoading(false);
-            }); */
+            });
 
         /* test */
-        fetch(`http://localhost:5000/blogs?status=Approved`)
+        /* fetch(`http://localhost:5000/blogs?status=Approved`)
             .then(res => res.json())
             .then(data => {
                 setBlogs(data);
                 setLoading(false);
-            });
-    }, []);
+            }); */
+    }, [page]);
 
     return (
         <>
