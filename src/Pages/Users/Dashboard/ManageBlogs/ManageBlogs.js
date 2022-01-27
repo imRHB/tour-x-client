@@ -115,9 +115,6 @@ const ManageBlogs = () => {
                                         >
                                             Action
                                         </th>
-                                        <th scope="col" className="relative px-6 py-3">
-                                            <span className="sr-only">Edit</span>
-                                        </th>
                                     </tr>
                                 </thead>
                                 <tbody className="bg-white divide-y divide-gray-200">
@@ -136,12 +133,12 @@ const ManageBlogs = () => {
                                             <td className="px-6 py-4 whitespace-nowrap">
                                                 <div className="flex items-center">
                                                     <div>
-                                                        <div className="text-sm font-medium text-gray-900">name</div>
-                                                        <div className="text-sm text-gray-500">email@email.com</div>
+                                                        <div className="text-sm font-medium text-gray-900">{blog.name}</div>
+                                                        <div className="text-sm text-gray-500">{blog.email}</div>
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">user</td>
+                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{blog.role}</td>
                                             <td className="px-6 py-4 whitespace-nowrap">
                                                 <div className="text-sm text-gray-900">{blog.title}</div>
                                                 <div className="text-sm text-gray-500">{blog.location}, {blog.address}</div>

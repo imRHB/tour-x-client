@@ -8,8 +8,11 @@ import {
 
 // import logo from '../../../assets/images/logo.png';
 import logoSm from '../../../assets/images/logo-sm.png';
+import useAuth from "../../../hooks/useAuth";
 
 const Navigation = () => {
+    const { user, logout } = useAuth();
+
     return (
         <Popover className="relative bg-white">
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
@@ -36,15 +39,34 @@ const Navigation = () => {
                         <Link to="/blogs" className="text-base font-medium text-gray-500 hover:text-gray-900">
                             Blogs
                         </Link>
+
+                        {
+                            user?.email && <Link to="/add-blog" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                                Add Blog
+                            </Link>
+                        }
                     </Popover.Group>
 
                     <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-                        <Link to="/login" className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
-                            Login
-                        </Link>
-                        <Link to="/register" className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
-                            Register
-                        </Link>
+                        {
+                            user?.email ? <div className="flex">
+                                <p className="text-base font-bold text-blue-500 my-2 mr-4">
+                                    {user?.displayName}
+                                </p>
+                                <button onClick={logout} className="h-10 px-5 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded focus:shadow-outline hover:bg-indigo-800">
+                                    Logout
+                                </button>
+                            </div>
+                                :
+                                <div>
+                                    <Link to="/login" className="whitespace-nowrap text-base font-medium text-gray-500 hover:text-gray-900">
+                                        Login
+                                    </Link>
+                                    <Link to="/register" className="ml-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
+                                        Register
+                                    </Link>
+                                </div>
+                        }
                     </div>
                 </div>
             </div>

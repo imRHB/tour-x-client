@@ -1,9 +1,12 @@
 import React, { useState } from 'react';
 import ReactStars from "react-rating-stars-component";
+import useAuth from "../../../../hooks/useAuth";
 
 const AddBlog = () => {
     const [blog, setBlog] = useState({});
     const [rating, setRating] = useState('');
+
+    const { user } = useAuth();
 
     const handleRating = rating => {
         setRating(rating);
@@ -14,7 +17,7 @@ const AddBlog = () => {
 
         const field = e.target.name;
         const value = e.target.value;
-        const newBlog = { ...blog, rating };
+        const newBlog = { ...blog, rating, name: user.displayName, email: user.email, role: 'user' };
         newBlog[field] = value;
         setBlog(newBlog);
     };

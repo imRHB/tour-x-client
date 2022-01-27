@@ -15,11 +15,14 @@ const useFirebase = () => {
 
     const googleProvider = new GoogleAuthProvider();
 
-    const registerWithEmailAndPassword = (email, password, name) => {
+    const registerWithEmailAndPassword = (email, password, name, location, navigate) => {
         setIsLoading(true);
 
         createUserWithEmailAndPassword(auth, email, password)
             .then(result => {
+                const destination = location?.state?.from || '/';
+                navigate(destination);
+
                 const newUser = { email, displayName: name };
                 setUser(newUser);
                 saveUserToDatabase(email, name, 'POST');
@@ -40,12 +43,13 @@ const useFirebase = () => {
             .finally(() => setIsLoading(false));
     };
 
-    const loginWithEmailAndPassword = (email, password) => {
+    const loginWithEmailAndPassword = (email, password, location, navigate) => {
         setIsLoading(true);
 
         signInWithEmailAndPassword(auth, email, password)
             .then(result => {
-
+                const destination = location?.state?.from || '/';
+                navigate(destination);
             })
             .catch(error => {
                 setError(error);
@@ -53,14 +57,16 @@ const useFirebase = () => {
             .finally(() => setIsLoading(false));
     };
 
-    const loginWithGoogle = () => {
+    const loginWithGoogle = (location, navigate) => {
         setIsLoading(true);
 
         signInWithPopup(auth, googleProvider)
             .then(result => {
                 const user = result?.user;
+                const destination = location?.state?.from || '/';
                 saveUserToDatabase(user?.email, user?.displayName, 'PUT');
                 setError('');
+                navigate(destination);
             })
             .catch(error => {
                 setError(error);

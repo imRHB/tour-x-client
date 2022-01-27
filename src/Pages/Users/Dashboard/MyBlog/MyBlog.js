@@ -1,22 +1,34 @@
 import React, { useEffect, useState } from 'react';
+import Rating from "react-rating";
+import useAuth from "../../../../hooks/useAuth";
 
 const MyBlog = () => {
     const [blogs, setBlogs] = useState([]);
-    console.log(blogs);
 
-    const handleApprove = blogId => {
-        console.log('approved', blogId);
-    };
+    const { user } = useAuth();
 
     const handleDelete = blogId => {
-        console.log('deleted', blogId);
+        const deleteConfirmation = window.confirm('Do you want to delete the blog?');
+
+        if (deleteConfirmation) {
+            fetch(`http://localhost:5000/blogs/${blogId}`, {
+                method: 'DELETE'
+            })
+                .then(res => res.json())
+                .then(result => {
+                    alert('Blog deleted successfully');
+                })
+        }
+        else {
+            return;
+        }
     };
 
     useEffect(() => {
-        fetch('http://localhost:5000/blogs')
+        fetch(`http://localhost:5000/blogs/${user.email}`)
             .then(res => res.json())
-            .then(data => setBlogs(data.blogs));
-    }, []);
+            .then(data => setBlogs(data));
+    }, [blogs, user.email]);
 
     return (
         <div className="container mx-auto min-h-full py-12 px-4 sm:px-6 lg:px-8">
@@ -49,12 +61,6 @@ const MyBlog = () => {
                                             scope="col"
                                             className="px-6 py-3 text-left text-xs font-extrabold text-gray-500 uppercase tracking-wider"
                                         >
-                                            Role
-                                        </th>
-                                        <th
-                                            scope="col"
-                                            className="px-6 py-3 text-left text-xs font-extrabold text-gray-500 uppercase tracking-wider"
-                                        >
                                             Title
                                         </th>
                                         <th
@@ -73,6 +79,12 @@ const MyBlog = () => {
                                             scope="col"
                                             className="px-6 py-3 text-left text-xs font-extrabold text-gray-500 uppercase tracking-wider"
                                         >
+                                            Rating
+                                        </th>
+                                        <th
+                                            scope="col"
+                                            className="px-6 py-3 text-left text-xs font-extrabold text-gray-500 uppercase tracking-wider"
+                                        >
                                             Status
                                         </th>
                                         <th
@@ -80,9 +92,6 @@ const MyBlog = () => {
                                             className="px-6 py-3 text-left text-xs font-extrabold text-gray-500 uppercase tracking-wider"
                                         >
                                             Action
-                                        </th>
-                                        <th scope="col" className="relative px-6 py-3">
-                                            <span className="sr-only">Edit</span>
                                         </th>
                                     </tr>
                                 </thead>
@@ -102,12 +111,11 @@ const MyBlog = () => {
                                             <td className="px-6 py-4 whitespace-nowrap">
                                                 <div className="flex items-center">
                                                     <div>
-                                                        <div className="text-sm font-medium text-gray-900">name</div>
-                                                        <div className="text-sm text-gray-500">email@email.com</div>
+                                                        <div className="text-sm font-medium text-gray-900">{blog.name}</div>
+                                                        <div className="text-sm text-gray-500">{blog.email}</div>
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">user</td>
                                             <td className="px-6 py-4 whitespace-nowrap">
                                                 <div className="text-sm text-gray-900">{blog.title}</div>
                                                 <div className="text-sm text-gray-500">{blog.location}, {blog.address}</div>
@@ -119,23 +127,29 @@ const MyBlog = () => {
                                                 <div className="text-sm text-gray-900">${blog.cost}</div>
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
+                                                <div className="text-sm text-gray-900">
+                                                    <Rating
+                                                        readonly
+                                                        initialRating={blog.rating}
+                                                        emptySymbol="far fa-star text-yellow-500 ms-1 p-0"
+                                                        fullSymbol="fas fa-star text-yellow-500 ms-1 p-0"
+                                                    ></Rating>
+                                                </div>
+                                            </td>
+                                            <td className="px-6 py-4 whitespace-nowrap">
                                                 <span className="px-2 inline-flex text-xs leading-5 font-semibold rounded-full bg-green-100 text-green-800">
-                                                    Pending
+                                                    {blog?.status}
                                                 </span>
                                             </td>
                                             <td className="px-6 py-4 whitespace-nowrap">
-                                                {/* <div className="text-sm text-gray-900">APPROVE</div>
-                                                <div className="text-sm text-gray-500">DELETE</div> */}
                                                 <div class="inline-flex" role="group" aria-label="Button group">
-                                                    <button onClick={() => handleApprove(blog._id)} className="h-8 px-4 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-l focus:shadow-outline hover:bg-indigo-800">APPROVE</button>
-                                                    <button onClick={() => handleDelete(blog._id)} className="h-8 px-4 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-r focus:shadow-outline hover:bg-indigo-800">DELETE</button>
+                                                    <button onClick={() => handleDelete(blog._id)} title="DELETE" className="h-8 px-4 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded focus:shadow-outline hover:bg-indigo-800">
+                                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                                        </svg>
+                                                    </button>
                                                 </div>
                                             </td>
-                                            {/* <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <a href="edit" className="text-indigo-600 hover:text-indigo-900">
-                                                    Edit
-                                                </a>
-                                            </td> */}
                                         </tr>
                                     ))}
                                 </tbody>
