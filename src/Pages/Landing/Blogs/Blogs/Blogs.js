@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/solid'
 
-// import blogs from '../../../../assets/data/blogs.json';
 import Blog from "../Blog/Blog";
-
-// const blogExtUri = 'blog';
 
 const Blogs = () => {
     const [blogs, setBlogs] = useState([]);
@@ -35,7 +31,7 @@ const Blogs = () => {
                     <div className="max-w-2xl mx-auto py-16 sm:py-24 lg:py-32 lg:max-w-none">
                         {/* <h2 className="text-2xl font-extrabold text-gray-900">BLOGS</h2> */}
 
-                        <div className="mt-6 space-y-12 lg:space-y-0 lg:grid lg:grid-cols-3 lg:gap-10">
+                        <div className="my-6 space-y-12 lg:space-y-0 md:grid md:grid-cols-2 md:gap-8 lg:grid-cols-3 lg:gap-10">
                             {
                                 blogs.map(blog => <Blog
                                     blog={blog}

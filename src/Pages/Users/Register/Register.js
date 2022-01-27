@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLocation, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { LockClosedIcon } from '@heroicons/react/solid';
 
 import useAuth from "../../../hooks/useAuth";
@@ -35,7 +35,7 @@ const Register = () => {
 
     return (
         <>
-            <div className="min-h-full flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
+            <div className="min-h-full flex items-center justify-center my-12 py-12 px-4 sm:px-6 lg:px-8">
                 <div className="max-w-md w-full space-y-8">
                     <div>
                         <img
@@ -75,7 +75,7 @@ const Register = () => {
                                     type="email"
                                     autoComplete="email"
                                     required
-                                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                                     placeholder="Email address"
                                 />
                             </div>
@@ -90,7 +90,7 @@ const Register = () => {
                                     type="password"
                                     autoComplete="current-password"
                                     required
-                                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
+                                    className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm"
                                     placeholder="Password"
                                 />
                             </div>
@@ -110,7 +110,6 @@ const Register = () => {
                                 />
                             </div>
                         </div>
-
                         <div>
                             <button
                                 type="submit"
@@ -119,10 +118,17 @@ const Register = () => {
                                 <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                                     <LockClosedIcon className="h-5 w-5 text-indigo-500 group-hover:text-indigo-400" aria-hidden="true" />
                                 </span>
-                                Register
+                                Create Account
                             </button>
                         </div>
                     </form>
+
+                    <div className="">
+                        <p>Already have an account?
+                            <Link to="/login" className="text-blue-500 underline hover:no-underline hover:text-blue-700 hover:bg-blue-200 mx-1">Login</Link>
+                            is very simple
+                        </p>
+                    </div>
                 </div>
             </div>
         </>

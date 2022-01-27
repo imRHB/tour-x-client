@@ -8,7 +8,7 @@ const BlogDetails = () => {
     const navigate = useNavigate();
 
     const handleAddBlog = () => {
-        navigate('/add-blog');
+        navigate('/dashboard/add-blog');
     };
 
     const { title, location, address, description, category, cost, rating, img, name } = blog;
