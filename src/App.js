@@ -3,6 +3,7 @@ import './App.css';
 
 import AuthProvider from "./contexts/AuthProvider";
 import BlogDetails from "./Pages/Details/BlogDetails/BlogDetails";
+import PaginatedItems from "./Pages/Error/Extra/PaginatedItems";
 import TestingPage from "./Pages/Error/Extra/TestingPage";
 import NotFound from "./Pages/Error/NotFound/NotFound";
 import Blogs from "./Pages/Landing/Blogs/Blogs/Blogs";
@@ -46,6 +47,7 @@ function App() {
             <Route path="/register" element={<Register />} />
 
             <Route path="test" element={<TestingPage />} />
+            <Route path="test2" element={<PaginatedItems />} />
 
             <Route path="*" element={<NotFound />} />
           </Routes>

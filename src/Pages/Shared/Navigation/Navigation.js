@@ -6,7 +6,6 @@ import {
     XIcon,
 } from '@heroicons/react/outline'
 
-// import logo from '../../../assets/images/logo.png';
 import logoSm from '../../../assets/images/logo-sm.png';
 import useAuth from "../../../hooks/useAuth";
 

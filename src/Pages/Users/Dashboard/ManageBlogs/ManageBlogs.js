@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Rating from "react-rating";
-// import useAuth from "../../../../hooks/useAuth";
 
 const ManageBlogs = () => {
     const [blogs, setBlogs] = useState([]);
