@@ -11,7 +11,7 @@ const Landing = () => {
     return (
         <div>
             <Banner />
-            {/* <Blogs /> */}
+            <Blogs />
             {/* <Header /> */}
             {/* <AddBlog /> */}
             {/* <ManageBlogs /> */}

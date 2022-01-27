@@ -47,7 +47,7 @@ const BlogDetails = () => {
                         <div className="flex mt-6 items-center pb-5 border-b-2 border-gray-200 mb-5"></div>
                         <div className="flex">
                             <span className="title-font font-medium text-2xl text-gray-900"><span className="title-font text-gray-500">Author:</span> {name}</span>
-                            <button className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded" onClick={handleAddBlog}>
+                            <button className="flex ml-auto text-white bg-purple-800 border-0 py-2 px-6 focus:outline-none hover:bg-purple-900 rounded" onClick={handleAddBlog}>
                                 Add Blog
                             </button>
                         </div>

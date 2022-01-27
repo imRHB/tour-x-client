@@ -3,7 +3,7 @@ import { Link, Outlet } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 
 const Dashboard = () => {
-    const { user, logout } = useAuth();
+    const { user, admin, logout } = useAuth();
 
     return (
         <div className="md:flex">
@@ -18,7 +18,7 @@ const Dashboard = () => {
                         <>
                             <Link to="/home" className="flex items-center px-4 py-2 text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700">Home</Link>
                             {
-                                user.email && <>
+                                user.email && !admin.admin && <>
                                     {/* <Link to="/dashboard"><span className="me-3">{dashboardIcon}</span>Dashboard</Link> */}
                                     <Link to="add-blog" className="flex items-center px-4 py-2 text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700">Add Blog</Link>
                                     {/* <Link to="my-blog" className="flex items-center px-4 py-2 text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700">My Blog</Link> */}
@@ -26,7 +26,7 @@ const Dashboard = () => {
                             }
 
                             {
-                                user.email && <>
+                                admin.admin && <>
                                     <Link to="manage-blogs" className="flex items-center px-4 py-2 text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700">Manage Blogs</Link>
                                     <Link to="make-admin" className="flex items-center px-4 py-2 text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700">Make Admin</Link>
                                     {/* <Link to="manage-order" className="flex items-center px-4 py-2 text-gray-600 transition-colors duration-200 transform rounded-md dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-700 dark:hover:text-gray-200 hover:text-gray-700">Manage Order</Link>

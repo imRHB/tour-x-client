@@ -37,7 +37,7 @@ const Navigation = () => {
                         </Link>
 
                         <Link to="/blogs" className="text-base font-medium text-gray-500 hover:text-gray-900">
-                            Blogs
+                            Explore
                         </Link>
 
                         {
