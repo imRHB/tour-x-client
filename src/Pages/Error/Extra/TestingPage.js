@@ -6,8 +6,6 @@ const TestingPage = () => {
     const [reviews, setReviews] = useState([]);
 
     const handleStatus = (_id) => {
-        console.log(_id);
-
         const status = 'Approved';
 
         fetch(`http://localhost:5000/reviews/${_id}`, {

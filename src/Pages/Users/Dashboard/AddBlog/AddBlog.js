@@ -25,7 +25,6 @@ const AddBlog = () => {
     const handleBlogPost = (e) => {
         e.preventDefault();
         const newBlog = { ...blog, status: 'Pending' };
-        console.log(newBlog);
 
         fetch('http://localhost:5000/blogs', {
             method: 'POST',

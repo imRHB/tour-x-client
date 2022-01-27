@@ -7,8 +7,6 @@ const ManageBlogs = () => {
 
     const handleApprove = (_id) => {
         const status = 'Approved';
-        console.log(_id);
-
 
         fetch(`http://localhost:5000/blogs/${_id}`, {
             method: 'PUT',
@@ -19,7 +17,7 @@ const ManageBlogs = () => {
         })
             .then(res => res.json())
             .then(result => {
-                console.log(result);
+
             })
     };
 

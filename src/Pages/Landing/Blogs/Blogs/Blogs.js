@@ -14,7 +14,6 @@ const Blogs = () => {
         fetch(`http://localhost:5000/blogs?page=${page}&&size=${size}`)
             .then(res => res.json())
             .then(data => {
-                console.log(data.blogs, data.count);
                 setBlogs(data.blogs);
                 // setDisplayBlogs(data.blogs);
                 // setPageCount(data.count);
