@@ -4,18 +4,17 @@ import { useState } from "react";
 
 const PaginationWithJ = () => {
     const [tms, setTms] = useState([]);
-    const [displayTms, setDisplayTms] = useState([]);
     const [page, setPage] = useState(0);
     const [pageCount, setPageCount] = useState(0);
 
     const size = 7;
+    // const status = 'Approved';
 
     useEffect(() => {
-        fetch(`http://localhost:5000/tms?page=${page}&&size=${size}`)
+        fetch(`https://ph-tour-x.herokuapp.com/tms?status=Approved`)
             .then(res => res.json())
             .then(data => {
                 setTms(data.tms);
-                setDisplayTms(data.tms);
                 const count = data.count;
                 const pageNumber = Math.ceil(count / size);
                 setPageCount(pageNumber);

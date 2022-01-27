@@ -10,7 +10,7 @@ const TestingPage = () => {
     const handleStatus = (_id) => {
         const status = 'Approved';
 
-        fetch(`http://localhost:5000/reviews/${_id}`, {
+        fetch(`https://ph-tour-x.herokuapp.com/reviews/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -26,7 +26,7 @@ const TestingPage = () => {
     useEffect(() => {
         setLoading(true);
 
-        fetch(`http://localhost:5000/reviews?status=Approved`)
+        fetch(`https://ph-tour-x.herokuapp.com/reviews?status=Approved`)
             .then(res => res.json())
             .then(data => {
                 setReviews(data);

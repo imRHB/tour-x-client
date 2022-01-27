@@ -26,7 +26,7 @@ const AddBlog = () => {
         e.preventDefault();
         const newBlog = { ...blog, status: 'Pending' };
 
-        fetch('http://localhost:5000/blogs', {
+        fetch('https://ph-tour-x.herokuapp.com/blogs', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

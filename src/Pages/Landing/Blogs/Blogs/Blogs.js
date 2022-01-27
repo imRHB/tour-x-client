@@ -9,13 +9,13 @@ const Blogs = () => {
     const [pageCount, setPageCount] = useState(0);
     const [page, setPage] = useState(0);
 
-    const size = 4;
+    const size = 10;
 
     useEffect(() => {
         setLoading(true);
 
         /* active */
-        fetch(`http://localhost:5000/blogs?page=${page}&&size=${size}`)
+        fetch(`https://ph-tour-x.herokuapp.com/blogs?page=${page}&&size=${size}&&status=Approved`)
             .then(res => res.json())
             .then(data => {
                 setBlogs(data.blogs);
@@ -26,7 +26,7 @@ const Blogs = () => {
             });
 
         /* test */
-        /* fetch(`http://localhost:5000/blogs?status=Approved`)
+        /* fetch(`https://ph-tour-x.herokuapp.com/blogs?status=Approved`)
             .then(res => res.json())
             .then(data => {
                 setBlogs(data);

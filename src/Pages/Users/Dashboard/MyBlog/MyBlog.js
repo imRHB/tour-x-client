@@ -11,7 +11,7 @@ const MyBlog = () => {
         const deleteConfirmation = window.confirm('Do you want to delete the blog?');
 
         if (deleteConfirmation) {
-            fetch(`http://localhost:5000/blogs/${blogId}`, {
+            fetch(`https://ph-tour-x.herokuapp.com/blogs/${blogId}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -25,7 +25,7 @@ const MyBlog = () => {
     };
 
     useEffect(() => {
-        fetch(`http://localhost:5000/blogs/${user.email}`)
+        fetch(`https://ph-tour-x.herokuapp.com/blogs/${user.email}`)
             .then(res => res.json())
             .then(data => setBlogs(data));
     }, [blogs, user.email]);

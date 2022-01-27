@@ -77,7 +77,7 @@ const useFirebase = () => {
     const saveUserToDatabase = (email, displayName, method) => {
         const user = { email, name: displayName };
 
-        fetch('http://localhost:5000/users', {
+        fetch('https://ph-tour-x.herokuapp.com/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'
@@ -103,7 +103,7 @@ const useFirebase = () => {
     };
 
     useEffect(() => {
-        fetch(`http://localhost:5000/users/${user?.email}`)
+        fetch(`https://ph-tour-x.herokuapp.com/users/${user?.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data));
     }, [user?.email]);

@@ -7,7 +7,7 @@ const ManageBlogs = () => {
     const handleApprove = (_id) => {
         const status = 'Approved';
 
-        fetch(`http://localhost:5000/blogs/${_id}`, {
+        fetch(`https://ph-tour-x.herokuapp.com/blogs/${_id}`, {
             method: 'PUT',
             headers: {
                 'content-type': 'application/json'
@@ -24,7 +24,7 @@ const ManageBlogs = () => {
         const deleteConfirmation = window.confirm('Do you want to delete the blog?');
 
         if (deleteConfirmation) {
-            fetch(`http://localhost:5000/blogs/${blogId}`, {
+            fetch(`https://ph-tour-x.herokuapp.com/blogs/${blogId}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -38,7 +38,7 @@ const ManageBlogs = () => {
     };
 
     useEffect(() => {
-        fetch('http://localhost:5000/blogs')
+        fetch('https://ph-tour-x.herokuapp.com/blogs')
             .then(res => res.json())
             .then(data => setBlogs(data.blogs));
     }, [blogs]);

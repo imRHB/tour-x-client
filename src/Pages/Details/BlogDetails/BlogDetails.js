@@ -20,7 +20,7 @@ const BlogDetails = () => {
     useEffect(() => {
         setLoading(true);
 
-        fetch(`http://localhost:5000/blogs/${blogId}`)
+        fetch(`https://ph-tour-x.herokuapp.com/blogs/${blogId}`)
             .then(res => res.json())
             .then(data => {
                 setBlog(data);

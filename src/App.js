@@ -3,9 +3,6 @@ import './App.css';
 
 import AuthProvider from "./contexts/AuthProvider";
 import BlogDetails from "./Pages/Details/BlogDetails/BlogDetails";
-import PaginatedItems from "./Pages/Error/Extra/PaginatedItems";
-import PaginationWithJ from "./Pages/Error/Extra/PaginationWithJ";
-import TestingPage from "./Pages/Error/Extra/TestingPage";
 import NotFound from "./Pages/Error/NotFound/NotFound";
 import Blogs from "./Pages/Landing/Blogs/Blogs/Blogs";
 import Landing from "./Pages/Landing/Landing";
@@ -46,9 +43,6 @@ function App() {
 
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-
-            <Route path="test" element={<TestingPage />} />
-            <Route path="test2" element={<PaginationWithJ />} />
 
             <Route path="*" element={<NotFound />} />
           </Routes>

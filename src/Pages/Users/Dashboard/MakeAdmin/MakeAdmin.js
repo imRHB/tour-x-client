@@ -15,7 +15,7 @@ const MakeAdmin = () => {
         const confirmToAddAdmin = window.confirm(`Do you want to add "${email}" as admin?`);
 
         if (confirmToAddAdmin) {
-            fetch('http://localhost:5000/users/admin', {
+            fetch('https://ph-tour-x.herokuapp.com/users/admin', {
                 method: 'PUT',
                 headers: {
                     'content-type': 'application/json'
