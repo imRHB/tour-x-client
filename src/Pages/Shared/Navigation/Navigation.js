@@ -41,9 +41,11 @@ const Navigation = () => {
                         </Link>
 
                         {
-                            user?.email && <Link to="/add-blog" className="text-base font-medium text-gray-500 hover:text-gray-900">
-                                Add Blog
-                            </Link>
+                            user?.email && <>
+                                <Link to="/dashboard" className="text-base font-medium text-gray-500 hover:text-gray-900">
+                                    Dashboard
+                                </Link>
+                            </>
                         }
                     </Popover.Group>
 

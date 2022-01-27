@@ -10,6 +10,9 @@ import PrivateRoute from "./Pages/Routes/PrivateRoute/PrivateRoute";
 import Footer from "./Pages/Shared/Footer/Footer";
 import Navigation from "./Pages/Shared/Navigation/Navigation";
 import AddBlog from "./Pages/Users/Dashboard/AddBlog/AddBlog";
+import Dashboard from "./Pages/Users/Dashboard/Dashboard";
+import MakeAdmin from "./Pages/Users/Dashboard/MakeAdmin/MakeAdmin";
+import ManageBlogs from "./Pages/Users/Dashboard/ManageBlogs/ManageBlogs";
 import Login from "./Pages/Users/Login/Login";
 import Register from "./Pages/Users/Register/Register";
 
@@ -27,9 +30,17 @@ function App() {
             <Route path="/blogs/:blogId" element={<PrivateRoute>
               <BlogDetails />
             </PrivateRoute>} />
-            <Route path="/add-blog" element={<PrivateRoute>
-              <AddBlog />
-            </PrivateRoute>} />
+
+            {/* Dashboard */}
+
+            <Route path="/dashboard" element={<PrivateRoute>
+              <Dashboard />
+            </PrivateRoute>}>
+              <Route path="add-blog" element={<AddBlog />} />
+              <Route path="manage-blogs" element={<ManageBlogs />} />
+              <Route path="make-admin" element={<MakeAdmin />} />
+            </Route>
+
 
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />

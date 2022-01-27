@@ -10,11 +10,11 @@ import Blogs from "./Blogs/Blogs/Blogs";
 const Landing = () => {
     return (
         <div>
-            {/* <Banner /> */}
+            <Banner />
             {/* <Blogs /> */}
             {/* <Header /> */}
             {/* <AddBlog /> */}
-            <ManageBlogs />
+            {/* <ManageBlogs /> */}
             {/* <MyBlog /> */}
             {/* <MakeAdmin /> */}
         </div>
