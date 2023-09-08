@@ -1,46 +1,45 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState } from "react";
 import Rating from "react-rating";
 
 const ManageBlogs = () => {
     const [blogs, setBlogs] = useState([]);
 
     const handleApprove = (_id) => {
-        const status = 'Approved';
+        const status = "Approved";
 
-        fetch(`https://ph-tour-x.herokuapp.com/blogs/${_id}`, {
-            method: 'PUT',
+        fetch(`https://tour-x-amky.onrender.com/blogs/${_id}`, {
+            method: "PUT",
             headers: {
-                'content-type': 'application/json'
+                "content-type": "application/json",
             },
-            body: JSON.stringify({ status })
+            body: JSON.stringify({ status }),
         })
-            .then(res => res.json())
-            .then(result => {
-
-            })
+            .then((res) => res.json())
+            .then((result) => {});
     };
 
-    const handleDelete = blogId => {
-        const deleteConfirmation = window.confirm('Do you want to delete the blog?');
+    const handleDelete = (blogId) => {
+        const deleteConfirmation = window.confirm(
+            "Do you want to delete the blog?"
+        );
 
         if (deleteConfirmation) {
-            fetch(`https://ph-tour-x.herokuapp.com/blogs/${blogId}`, {
-                method: 'DELETE'
+            fetch(`https://tour-x-amky.onrender.com/blogs/${blogId}`, {
+                method: "DELETE",
             })
-                .then(res => res.json())
-                .then(result => {
-                    alert('Blog deleted successfully');
-                })
-        }
-        else {
+                .then((res) => res.json())
+                .then((result) => {
+                    alert("Blog deleted successfully");
+                });
+        } else {
             return;
         }
     };
 
     useEffect(() => {
-        fetch('https://ph-tour-x.herokuapp.com/blogs')
-            .then(res => res.json())
-            .then(data => setBlogs(data.blogs));
+        fetch("https://tour-x-amky.onrender.com/blogs")
+            .then((res) => res.json())
+            .then((data) => setBlogs(data.blogs));
     }, [blogs]);
 
     return (
@@ -112,38 +111,59 @@ const ManageBlogs = () => {
                                     {blogs.map((blog, index) => (
                                         <tr key={blog._id}>
                                             <td className="px-4 py-4 whitespace-nowrap">
-                                                <div className="text-sm text-gray-900">{index + 1}</div>
+                                                <div className="text-sm text-gray-900">
+                                                    {index + 1}
+                                                </div>
                                             </td>
                                             <td className="px-4 py-4 whitespace-nowrap">
                                                 <div className="flex items-center">
                                                     <div className="flex-shrink-0 h-10 w-10">
-                                                        <img className="h-auto w-full rounded" src={blog.img} alt="" />
+                                                        <img
+                                                            className="h-auto w-full rounded"
+                                                            src={blog.img}
+                                                            alt=""
+                                                        />
                                                     </div>
                                                 </div>
                                             </td>
                                             <td className="px-4 py-4 whitespace-nowrap">
                                                 <div className="flex items-center">
                                                     <div>
-                                                        <div className="text-sm font-medium text-gray-900">{blog.name}</div>
-                                                        <div className="text-sm text-gray-500">{blog.email}</div>
+                                                        <div className="text-sm font-medium text-gray-900">
+                                                            {blog.name}
+                                                        </div>
+                                                        <div className="text-sm text-gray-500">
+                                                            {blog.email}
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td className="px-4 py-4 whitespace-nowrap">
-                                                <div className="text-sm text-gray-900">{blog.title}</div>
-                                                <div className="text-sm text-gray-500">{blog.location}, {blog.address}</div>
+                                                <div className="text-sm text-gray-900">
+                                                    {blog.title}
+                                                </div>
+                                                <div className="text-sm text-gray-500">
+                                                    {blog.location},{" "}
+                                                    {blog.address}
+                                                </div>
                                             </td>
                                             <td className="px-4 py-4 whitespace-nowrap">
-                                                <div className="text-sm text-gray-900">{blog.category}</div>
+                                                <div className="text-sm text-gray-900">
+                                                    {blog.category}
+                                                </div>
                                             </td>
                                             <td className="px-4 py-4 whitespace-nowrap">
-                                                <div className="text-sm text-gray-900">${blog.cost}</div>
+                                                <div className="text-sm text-gray-900">
+                                                    ${blog.cost}
+                                                </div>
                                             </td>
                                             <td className="px-4 py-4 whitespace-nowrap">
                                                 <div className="text-sm text-gray-900">
                                                     <Rating
                                                         readonly
-                                                        initialRating={blog.rating}
+                                                        initialRating={
+                                                            blog.rating
+                                                        }
                                                         emptySymbol="far fa-star text-yellow-500 ms-1 p-0"
                                                         fullSymbol="fas fa-star text-yellow-500 ms-1 p-0"
                                                     ></Rating>
@@ -155,15 +175,57 @@ const ManageBlogs = () => {
                                                 </span>
                                             </td>
                                             <td className="px-4 py-4 whitespace-nowrap">
-                                                <div className="inline-flex" role="group" aria-label="Button group">
-                                                    <button onClick={() => handleApprove(blog._id)} title="APPROVE" className="h-8 px-4 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-l focus:shadow-outline hover:bg-indigo-800">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                                                <div
+                                                    className="inline-flex"
+                                                    role="group"
+                                                    aria-label="Button group"
+                                                >
+                                                    <button
+                                                        onClick={() =>
+                                                            handleApprove(
+                                                                blog._id
+                                                            )
+                                                        }
+                                                        title="APPROVE"
+                                                        className="h-8 px-4 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-l focus:shadow-outline hover:bg-indigo-800"
+                                                    >
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            className="h-6 w-6"
+                                                            fill="none"
+                                                            viewBox="0 0 24 24"
+                                                            stroke="currentColor"
+                                                        >
+                                                            <path
+                                                                stroke-linecap="round"
+                                                                stroke-linejoin="round"
+                                                                stroke-width="2"
+                                                                d="M5 13l4 4L19 7"
+                                                            />
                                                         </svg>
                                                     </button>
-                                                    <button onClick={() => handleDelete(blog._id)} title="DELETE" className="h-8 px-4 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-r focus:shadow-outline hover:bg-indigo-800">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                                                    <button
+                                                        onClick={() =>
+                                                            handleDelete(
+                                                                blog._id
+                                                            )
+                                                        }
+                                                        title="DELETE"
+                                                        className="h-8 px-4 text-indigo-100 transition-colors duration-150 bg-indigo-700 rounded-r focus:shadow-outline hover:bg-indigo-800"
+                                                    >
+                                                        <svg
+                                                            xmlns="http://www.w3.org/2000/svg"
+                                                            className="h-6 w-6"
+                                                            fill="none"
+                                                            viewBox="0 0 24 24"
+                                                            stroke="currentColor"
+                                                        >
+                                                            <path
+                                                                strokeLinecap="round"
+                                                                strokeLinejoin="round"
+                                                                strokeWidth={2}
+                                                                d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                                                            />
                                                         </svg>
                                                     </button>
                                                 </div>
@@ -175,8 +237,8 @@ const ManageBlogs = () => {
                         </div>
                     </div>
                 </div>
-            </div >
-        </div >
+            </div>
+        </div>
     );
 };
 

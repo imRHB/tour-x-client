@@ -1,5 +1,5 @@
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from 'firebase/auth';
 import { useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, updateProfile, signInWithPopup, signOut } from 'firebase/auth';
 
 import initializeFirebase from "../Firebase/firenase.init";
 
@@ -77,7 +77,7 @@ const useFirebase = () => {
     const saveUserToDatabase = (email, displayName, method) => {
         const user = { email, name: displayName };
 
-        fetch('https://ph-tour-x.herokuapp.com/users', {
+        fetch('https://tour-x-amky.onrender.com/users', {
             method: method,
             headers: {
                 'content-type': 'application/json'
@@ -103,7 +103,7 @@ const useFirebase = () => {
     };
 
     useEffect(() => {
-        fetch(`https://ph-tour-x.herokuapp.com/users/${user?.email}`)
+        fetch(`https://tour-x-amky.onrender.com/users/${user?.email}`)
             .then(res => res.json())
             .then(data => setAdmin(data));
     }, [user?.email]);
